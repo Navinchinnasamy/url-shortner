@@ -1,0 +1,28 @@
+html
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", herf="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css")
+        title URL Shortner
+    body
+        div.container
+            h1 URL Shrinker
+            form.my-4.form-inline(action="/short", method="POST")
+                label.sr-only(for="fullUrl") Full URL
+                input#fullUrl.form-control.col.mr-2(name="fullUrl", placeholder="Full URL", type="url")
+                button.btn.btn-success(type="submit") Shrink This!
+
+            div
+                table.table.table-responsive.table-stripped
+                    thead
+                        tr
+                            th Full URL
+                            th Short URL
+                            th Clicks
+                    tbody
+                        if shortUrls && shortUrls.length
+                            each su in shortUrls
+                                tr
+                                    td !{su.full}
+                                    td !{su.short}
+                                    td !{su.clicks}
