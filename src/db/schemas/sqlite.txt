@@ -1,8 +1,0 @@
-CREATE TABLE url_mappings (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    short_code TEXT UNIQUE NOT NULL,
-    original_url TEXT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    click_count INTEGER DEFAULT 0
-);
-CREATE INDEX idx_short_code ON url_mappings(short_code);
